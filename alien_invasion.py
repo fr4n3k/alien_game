@@ -1,6 +1,8 @@
 import sys
+from time import sleep
 import pygame
 from settings import Settings
+from game_stats import GameStats
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -126,7 +128,6 @@ class AlienInvasion:
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *= -1
 
-
     def _update_aliens(self):
         """
         Check if the fleet is at an edge,
@@ -134,6 +135,9 @@ class AlienInvasion:
         """
         self._check_fleet_edges()
         self.aliens.update()
+        # Look for alien-ship collision
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print('Ship hit!')
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
@@ -152,7 +156,6 @@ class AlienInvasion:
             self._update_bullets()
             self._update_aliens()
             self._update_screen()
-
 
 
 if __name__ == '__main__':
