@@ -166,6 +166,8 @@ class AlienInvasion:
         # Look for alien-ship collision
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
             self._ship_hit()
+        # Look for aliens hitting the bottom of the screen
+        self._check_aliens_bottom()
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
