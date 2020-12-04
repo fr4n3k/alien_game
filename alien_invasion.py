@@ -3,6 +3,7 @@ from time import sleep
 import pygame
 from settings import Settings
 from game_stats import GameStats
+from button import Button
 from ship import Ship
 from bullet import Bullet
 from alien import Alien
@@ -27,6 +28,8 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
+        # Make the play button.
+        self.play_button = Button(self, "Play")
 
     def _create_alien(self, alien_number, row_number):
         # Create an alien and place it in the row
