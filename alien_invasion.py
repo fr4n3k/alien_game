@@ -82,9 +82,6 @@ class AlienInvasion:
         """Starts the game from level 0"""
         self.stats.reset_stats()
         self.stats.game_active = True
-        # Reset the game settings.
-        self.settings.initialize_dynamic_settings()
-
         # Get rid of any remaining aliens and bullets.
         self.aliens.empty()
         self.bullets.empty()
