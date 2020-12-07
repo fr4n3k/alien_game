@@ -79,7 +79,7 @@ class AlienInvasion:
     def _quit_game(self):
         """Writes the hisgh score and quits the game with high score"""
         with open('high_score.txt', 'w') as f:
-            f.write(self.stats.high_score)
+            f.write(str(self.stats.high_score))
         sys.exit()
 
     def _check_play_button(self, mouse_pos):
