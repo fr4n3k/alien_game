@@ -67,7 +67,7 @@ class AlienInvasion:
         """Respond to keyboard and mouse events."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                self._quit_game()
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
@@ -75,6 +75,12 @@ class AlienInvasion:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 self._check_play_button(mouse_pos)
+
+    def _quit_game(self):
+        """Writes the hisgh score and quits the game with high score"""
+        with open('high_score.txt', 'w') as f:
+            f.write(self.stats.high_score)
+        sys.exit()
 
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play."""
@@ -110,7 +116,7 @@ class AlienInvasion:
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = True
         elif event.key == pygame.K_q:
-            sys.exit()
+            self._quit_game()
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
         elif event.key == pygame.K_p:
