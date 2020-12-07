@@ -78,9 +78,6 @@ class AlienInvasion:
         if button_clicked and not self.stats.game_active:
             self._start_game()
 
-            # Hide the mouse button
-            pygame.mouse.set_visible(False)
-
     def _start_game(self):
         """Starts the game from level 0"""
         self.stats.reset_stats()
@@ -93,6 +90,9 @@ class AlienInvasion:
         # Create a new fleet and center the ship.
         self._create_fleet()
         self.ship.center_ship()
+
+        # Hide the mouse button
+        pygame.mouse.set_visible(False)
 
     def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
