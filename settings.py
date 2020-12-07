@@ -33,3 +33,9 @@ class Settings:
 
         # fleet_direction of 1 represnts right; -1 represents left.
         self.fleet_direction = 1
+
+    def increase_speed(self):
+
+        self.ship_speed *= self.speedup_scale
+        self.bullet_speed *= self.speedup_scale
+        self.alien_speed *= self.speedup_scale
