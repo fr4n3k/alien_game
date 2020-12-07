@@ -155,8 +155,10 @@ class AlienInvasion:
             self.sb.check_high_score()
 
         if not self.aliens:
-            # Destroy existing bullets and create new fleet.
+            # Destroy existing bullets, reposition your ship
+            # and create new fleet.
             self.bullets.empty()
+            self.ship.center_ship()
             self._create_fleet()
             self.settings.increase_speed()
 
